@@ -1,0 +1,16 @@
+def factors(filename):
+    with open(filename, 'r') as file:
+        numbers = file.readlines()
+
+    for number in numbers:
+        n = int(number.strip())
+        for i in range(2, int(n**0.5) + 1):
+            if n % i == 0:
+                print(f"{n}={i}*{n//i}")
+                break
+        else:
+            print(f"{n}=1*{n}")
+
+if __name__ == "__main__":
+    import sys
+    factors(sys.argv[1]
