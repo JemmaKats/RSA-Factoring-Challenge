@@ -1,0 +1,16 @@
+from sympy import primefactors
+
+def factorize_rsa(filename):
+    with open(filename, 'r') as file:
+        rsa_number = int(file.readline().strip())
+
+    factors = primefactors(rsa_number)
+
+    if len(factors) == 2:
+        print(f"{rsa_number}={factors[0]}*{factors[1]}")
+    else:
+        print("The number could not be factorized into two primes.")
+
+if __name__ == "__main__":
+    import sys
+    factorize_rsa(sys.argv[1])
